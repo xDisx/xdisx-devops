@@ -13,7 +13,14 @@ services:
       POSTGRES_USER: root
       POSTGRES_PASSWORD: root
     network_mode: "host"
-
+  contract-app:
+    image: ghcr.io/magraul/contract-app:latest
+    container_name: xdisx-contract-app
+    environment:
+      - SPRING_PROFILES_ACTIVE=local
+    network_mode: "host"
+    depends_on:
+      - postgres
 volumes:
   postgres_data:
     driver: local
