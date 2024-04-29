@@ -21,6 +21,14 @@ services:
     network_mode: "host"
     depends_on:
       - postgres
+  customer-app:
+    image: ghcr.io/magraul/customer-app:latest
+    container_name: xdisx-customer-app
+    environment:
+      - SPRING_PROFILES_ACTIVE=local
+    network_mode: "host"
+    depends_on:
+      - postgres
 volumes:
   postgres_data:
     driver: local
