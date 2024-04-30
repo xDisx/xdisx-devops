@@ -29,6 +29,13 @@ services:
     network_mode: "host"
     depends_on:
       - postgres
+  frontend:
+    image: ghcr.io/magraul/xdisx-fe:latest
+    container_name: frontend
+    restart: on-failure
+    network_mode: "host"
+    environment:
+      - PORT=4200
 volumes:
   postgres_data:
     driver: local
