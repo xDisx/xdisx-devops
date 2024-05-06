@@ -31,11 +31,17 @@ services:
       - postgres
   frontend:
     image: ghcr.io/magraul/xdisx-fe:latest
-    container_name: frontend
+    container_name: xidsx-frontend
     restart: on-failure
     network_mode: "host"
     environment:
       - PORT=4200
+  gateway-app:
+    image: ghcr.io/magraul/xdisx-gateway:latest
+    container_name: xdisx-gateway
+    environment:
+      - SPRING_PROFILES_ACTIVE=local
+    network_mode: "host"
 volumes:
   postgres_data:
     driver: local
