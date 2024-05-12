@@ -29,6 +29,14 @@ services:
     network_mode: "host"
     depends_on:
       - postgres
+  product-app:
+    image: ghcr.io/magraul/product-app:latest
+    container_name: xdisx-product-app
+    environment:
+      - SPRING_PROFILES_ACTIVE=local
+    network_mode: "host"
+    depends_on:
+      - postgres
   frontend:
     image: ghcr.io/magraul/xdisx-fe:latest
     container_name: xidsx-frontend
