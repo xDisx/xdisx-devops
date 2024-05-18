@@ -58,6 +58,12 @@ services:
     environment:
       - SPRING_PROFILES_ACTIVE=local
     network_mode: "host"
+  security-app:
+    image: ghcr.io/magraul/xdisx-security:latest
+    container_name: xdisx-security
+    environment:
+      - SPRING_PROFILES_ACTIVE=local
+    network_mode: "host"
 volumes:
   postgres_data:
     driver: local
